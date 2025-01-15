@@ -1,0 +1,90 @@
+@startuml neighborly-class
+class Member {
+    int memberId
+    String firstName
+    String lastName
+    String email
+    String password
+    String phone
+    String community
+    String flatNo
+    Date memberSince
+    Date lastLogin
+    Item[] items
+    Conversation[] conversations   
+}
+
+class Item {
+    int itemId
+    String title
+    String description
+    double price
+    Category category
+    community community
+    Member seller
+    Condition Condition
+    Photo[] photos
+}
+
+class Photo {
+    int photoId
+    String url
+    String description
+}
+
+class Message{
+    int messageId
+    String content
+    Member sender
+    Member receiver
+    Date sentAt
+    Date readAt
+}
+
+class Conversation {
+    int  conversationId
+    Message[] messages
+    Member[] participants
+}
+
+enum Category {
+    ELECTRONICS
+    FURNITURE
+    CLOTHING
+    TOYS
+    BOOKS
+    TOOLS
+    OTHER
+}
+enum community {
+    Marina Skies
+    Rainbow Vistas Rock Garden
+    Rainbow Vistas
+}
+
+enum ItemStatus {
+    AVAILABLE
+    SOLD
+    REMOVED
+}
+
+
+enum Condition {
+    New
+    Used - Like New
+    Used - Good
+    Used - Fair
+}
+
+
+Member "1" -- "0..*" Item : sells/buy/view
+Member "1" -- "1" community :  lives in
+Item "1" -- "1" Category : belongs to
+Item "1" -- "1" community : belongs to
+Item "1" -- "1" Condition : is in
+Item "1" -- "0..*" Photo : has
+Item "1" -- "1" ItemStatus : is in
+Conversation "1" -- "1..*" Message : has
+Conversation "1" -- "2" Member : has
+
+@enduml

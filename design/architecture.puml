@@ -1,0 +1,20 @@
+@startuml Architecture
+[Angular Frontend] as angular
+[Java\n ItemService] as item
+[Java\n UserService] as user
+[Java\n GatewayService] as gateway
+[Java\n ConversationService] as conversation
+database "Imgur"
+database "RDBMS"
+
+
+angular --> gateway
+gateway --> item
+gateway --> user
+gateway --> conversation
+user --> RDBMS
+conversation --> RDBMS
+item --> Imgur
+item --> RDBMS
+@enduml
+

@@ -1,0 +1,36 @@
+@startuml member-usecase
+
+left to right direction
+actor Member as m
+package Neighborly {
+ usecase "Member registration" as uc0
+ usecase "member login" as uc1
+ usecase "View the items for sale" as uc2
+ usecase "Filter the items based on category" as uc3
+ usecase "Filter the items based on community" as uc4
+ usecase "click and view item details" as uc5
+ usecase "view seller information" as uc6
+ usecase "send offer to the seller" as uc7
+ usecase "Initiate a conversation with the seller" as uc8
+ usecase "view conversations" as uc9
+ usecase "post an item for sale" as uc10
+ usecase "Edit items posted for sale" as uc11
+ usecase "Delete items posted for sale" as uc12
+ usecase "Disable/Enable the items posted for sale" as uc13
+}
+
+m --> uc0
+m --> uc1
+m --> uc2
+m --> uc3
+m --> uc4
+m --> uc5
+m --> uc6
+m --> uc7
+m --> uc8
+m --> uc9
+m --> uc10
+m --> uc11
+m --> uc12
+m --> uc13
+@enduml
