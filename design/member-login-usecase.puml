@@ -1,0 +1,16 @@
+@startuml member-registration
+
+left to right direction
+actor CommunityMember as m
+actor Guest as g
+package Registration {
+ usecase "Member registration" as uc0
+ usecase "Member Login" as uc1
+ usecase "Guest Login" as uc2
+}
+
+m --> uc0
+m --> uc1
+g --> uc2
+
+@enduml

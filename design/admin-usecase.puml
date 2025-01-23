@@ -1,0 +1,12 @@
+@startuml admin-usecase
+
+left to right direction
+actor Admin as m
+
+package Admin {
+ usecase "Verify and Approve Registrations" as uc0
+}
+
+m --> uc0
+
+@enduml

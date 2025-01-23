@@ -1,0 +1,18 @@
+@startuml member-community-Engagement-usecase
+
+left to right direction
+actor CommunityMember as m
+package CommunityEngagement {
+ usecase "Announcements" as uc0
+ usecase "Event Calendar" as uc1
+ usecase "Forum/Discussion Boards" as uc2
+ usecase "Community specific information" as uc3
+
+}
+
+m --> uc0
+m --> uc1
+m --> uc2
+m --> uc3
+
+@enduml

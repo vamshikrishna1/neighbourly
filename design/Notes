@@ -1,0 +1,27 @@
+1. Registration
+
+We have two types of Users
+    1. Community Member
+    2. Guest
+    3.Admin
+
+Community Member:    
+    User can register by filling his basic details like first name, last name, contact information, community etc.
+    User needs to upload  any document that stands as a proof that he/she resides in the community.
+    
+    Once user fills all the information , upload the document and click on the submit, the request goes to admin for Approval.
+    The admin would verify if the document matches with the community  he/she claiming to be part of and approves if it matches.
+
+
+Guest:
+    Guest user can login without any regsitration but would have limited access to the application.
+
+Admin:
+    Will have complete access to the application 
+    verify and approve the resgitration requests from community Members.
+
+
+2. Buy/Sell
+        A community Member 
+
+    
