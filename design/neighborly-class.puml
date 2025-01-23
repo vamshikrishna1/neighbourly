@@ -12,6 +12,7 @@ class Member {
     Date lastLogin
     Item[] items
     Conversation[] conversations   
+
 }
 
 class Item {
@@ -24,6 +25,129 @@ class Item {
     Member seller
     Condition Condition
     Photo[] photos
+    boolean active
+}
+
+
+class Property{
+ PROPERTY_FOR for
+ PROPERTY_TYPE type
+ BHK_TYPE bhkType
+ Photo[] photos
+ String description
+ String builtUp_area
+ String carpet_area
+ Facing facing
+ FLOOR floor
+ FLOOR totalFloor
+ PROPERTY_AGE age
+ String expectedPrice
+ boolean priceNegotiable
+ boolean currentlyUnderLoan
+ FURNISHING furnishing
+ PARKING parking
+ Date availableFrom
+ WATER_SUPPLY waterSupply
+ int bathrooms
+ int balconies
+ POWER_BACKUP powerBackup
+ ANSWER haveYouPaidPropertyTax
+ ANSWER doYouHaveOccupancyCertificate
+ ANSWER doYouHaveSaleDeed
+ SCHEDULE scheduleVisit
+
+}
+
+
+enum ANSWER{
+    YES
+    NO
+    DONT_KNOW
+}
+
+
+
+
+POWER_BACKUP{
+    FULL
+    PARTIAL
+    NONE
+}
+
+
+WATER_SUPPLY{
+    CORPORATION
+    BOREWELL
+    BOTH
+}
+
+class Location{
+    String city
+    String locality
+    String street
+    String landmark
+
+}
+
+enum PARKING{
+    CAR
+    BIKE
+    BOTH
+    NONE
+}
+
+enum FURNISHING{
+    FULLY_FURNISHED
+    SEMI_FURNISHED
+    UN_FURNISHED
+}
+
+enum PROPERTY_AGE{
+    UNDER_CONSTRUCTION
+    LESS_THAN_A_YEAR
+    1_TO_3_YEARS
+    3_TO_5_YEARS
+    5_TO_10_YEARS
+    MORE_THAN_10_YEARS
+}
+
+enum FLOOR{
+    GROUND
+    1
+    2
+    3
+    4
+}
+
+enum FACING{
+    NORTH
+    SOUTH
+    EAST
+    WEST
+    NORTH_EAST
+    SOUTH_EAST
+    NOTH_WEST
+    SOUTH_WEST
+    DONT_KNOW
+}
+
+enum BHK_TYPE{
+    1RK
+    2BHK
+    3BHK
+    4BHK
+    4+BHK
+}
+
+
+enum PROPERTY_TYPE{
+    FLAT
+    HOUSE
+}
+
+enum PROPERTY_FOR{
+    SALE
+    RENT
 }
 
 class Photo {
@@ -48,13 +172,24 @@ class Conversation {
 }
 
 enum Category {
+    VEHICLES
+    PROPERTIES
+    BOOKS
+    CLOTHING
+    JEWELLERY
+    TOYS
     ELECTRONICS
     FURNITURE
     CLOTHING
-    TOYS
+    TOYS_AND_GAMES
+    BABY_PRODUCTS
     BOOKS
-    TOOLS
     OTHER
+    FOOD
+    GROCERIES
+    GARDEN_AND_OUTDOORS
+    PET_SUPPLIES
+    STATIONARY
 }
 enum community {
     Marina Skies

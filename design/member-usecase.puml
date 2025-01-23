@@ -1,10 +1,29 @@
-@startuml member-usecase
+
+@startuml member-registration
 
 left to right direction
-actor Member as m
-package Neighborly {
+actor CommunityMember as m
+actor Guest as g
+package Registration {
  usecase "Member registration" as uc0
- usecase "member login" as uc1
+ usecase "Member Login" as uc1
+ usecase "Guest Login" as uc2
+}
+
+m --> uc0
+m --> uc1
+g --> uc2
+
+@enduml
+
+
+
+@startuml member-post-login
+
+left to right direction
+actor AuthorizedMember as m
+actor Guest as g
+package Post-Login {
  usecase "View the items for sale" as uc2
  usecase "Filter the items based on category" as uc3
  usecase "Filter the items based on community" as uc4
@@ -17,10 +36,14 @@ package Neighborly {
  usecase "Edit items posted for sale" as uc11
  usecase "Delete items posted for sale" as uc12
  usecase "Disable/Enable the items posted for sale" as uc13
+ usecase "share the user's catalogue" as uc13
+ usecase "Blogging" as uc14
+ usecase "Access Questions" as uc15
+ usecase "Post a question" as uc16
+ usecase "post an answer" as uc17
+ usecase "access community specific content" as uc18
 }
 
-m --> uc0
-m --> uc1
 m --> uc2
 m --> uc3
 m --> uc4
@@ -33,4 +56,18 @@ m --> uc10
 m --> uc11
 m --> uc12
 m --> uc13
+m --> uc14
+m --> uc15
+m --> uc16
+m --> uc17
+m --> uc18
+
+g --> uc2
+g --> uc3
+g --> uc4
+g --> uc5
+g --> uc6
+g --> uc7
+g --> uc8
+
 @enduml
