@@ -68,14 +68,14 @@ enum ANSWER{
 
 
 
-POWER_BACKUP{
+enum POWER_BACKUP{
     FULL
     PARTIAL
     NONE
 }
 
 
-WATER_SUPPLY{
+enum WATER_SUPPLY{
     CORPORATION
     BOREWELL
     BOTH
@@ -205,10 +205,10 @@ enum ItemStatus {
 
 
 enum Condition {
-    New
-    Used - Like New
-    Used - Good
-    Used - Fair
+    NEW
+    Used_LIKE_NEW
+    USED_GOOD
+    USED_FAIR
 }
 
 
@@ -222,4 +222,17 @@ Item "1" -- "1" ItemStatus : is in
 Conversation "1" -- "1..*" Message : has
 Conversation "1" -- "2" Member : has
 
+Property "1" -- "0..*" Photo : has
+Property "1" -- "1" Location : has
+Property "1" -- "1" PROPERTY_FOR : is for
+Property "1" -- "1" PROPERTY_TYPE : is of type
+Property "1" -- "1" BHK_TYPE : is of type
+Property "1" -- "1" FLOOR : is on
+Property "1" -- "1" FACING : is of
+Property "1" -- "1" PROPERTY_AGE : is of
+Property "1" -- "1" FURNISHING : is of
+Property "1" -- "1" PARKING : is of
+Property "1" -- "1" WATER_SUPPLY : is of
+Property "1" -- "1" POWER_BACKUP : is of
+Property "1" -- "1" ANSWER : is of
 @enduml
