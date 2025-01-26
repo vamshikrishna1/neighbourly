@@ -1,4 +1,4 @@
-@startuml neighborly-class
+@startuml neighbourly-class
 class Member {
     int memberId
     String firstName
