@@ -1,3 +1,4 @@
+Application Features:
 1. Registration
 
 We have two types of Users
@@ -22,6 +23,87 @@ Admin:
 
 
 2. Buy/Sell
-        A community Member 
+    Only A community member can  post an item for sale in this application.
+    The Seller can enable/disable/edit/post/delete the item for sale.
+    The Seller can share the catalogue over the other messaging channels like whatsapp via link.
 
+    Any User be it a community Member, guest or Admin can view the list of Items posted for sale.
+    The user can also filter the items based on the category and community.
+    the user can click on any item and view the item details.
+    There is no Payment and shipment option for Buy/sell.
+    The user if he is interested in the Item, In the item details page, he/she can click on the button to Intitiate the conversation with the Seller.
     
+    The  community member can view the previous conversations with the seller but a guest user cannot.Conversations for gust user will not be stored in the database.
+
+    Also a button to send an offer to the Seller would be available.
+    The seller can approve or deny the offer.
+    The buyer can view the seller information.
+
+3. Blogging
+    Only Community members can do blogging.
+    The blogs will have visibility it can be either 
+    public -  Guest, any community member,admin can view the blog
+    private - Only the same community members can view it
+    custom - also you can select the communities who can view your blog.
+
+4. Discussion Boards
+    Only community members can access it.
+    Any community member can post a question and anobody who is a community member can answer it.
+    This is private to the community.
+    A community member cannot access the discussion boards of other community.
+
+5. Service Listing
+    Only A community Member can post a service he/she is offering for community Members.
+    The visibility can be set public, private or selected communities.
+
+
+6. Community Engagement
+    Only same community members can access it.
+    Here the user can view the discussion boards,
+    Announcements, events calendar and other community specific information.
+
+===============================================================================================================
+
+
+=*Neighbourly Microservices Architecture:*
+1. *User Management Microservice*
+	* Handles user registration, login, profile management
+	* API endpoint prefix: /api/users
+	* Technologies: Spring Boot, Spring Security, MySQL
+2. *Authentication Microservice*
+	* Manages JWT token generation, validation
+	* API endpoint prefix: /api/auth
+	* Technologies: Spring Boot, Spring Security, JWT
+3. *Marketplace Microservice*
+	* Handles item listings, search, filtering
+	* API endpoint prefix: /api/marketplace
+	* Technologies: Spring Boot, Spring Data JPA, MySQL
+4. *Blogging Microservice*
+	* Manages blog post creation, retrieval, comments
+	* API endpoint prefix: /api/blogs
+	* Technologies: Spring Boot, Spring Data JPA, MySQL
+5. *Service Listing Microservice*
+	* Handles service provider listings, search
+	* API endpoint prefix: /api/service-listing
+	* Technologies: Spring Boot, Spring Data JPA, MySQL
+6. *Community Engagement Microservice*
+	* Manages discussions, community events
+	* API endpoint prefix: /api/community
+	* Technologies: Spring Boot, Spring Data JPA, MySQL
+	* Includes Discussion Boards submodule
+7. *Conversations Microservice*
+	* Handles private conversations between users
+	* API endpoint prefix: /api/conversations
+	* Technologies: Spring Boot, Spring Data JPA, MySQL
+8. *Gateway Microservice (API Gateway)*
+	* Routes incoming requests to respective microservices
+	* Technologies: Spring Boot, Spring Cloud Gateway
+*Database Design:*
+Each microservice will have its own database schema. 
+* User Management: users_db
+* Authentication: (shared with User Management) users_db
+* Marketplace: marketplace_db
+* Blogging: blogging_db
+* Service Listing: service_listing_db
+* Community Engagement: community_db
+* Conversations: conversations_db

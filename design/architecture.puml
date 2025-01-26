@@ -1,20 +1,51 @@
 @startuml Architecture
 [Angular Frontend] as angular
-[Java\n ItemService] as item
-[Java\n UserService] as user
-[Java\n GatewayService] as gateway
-[Java\n ConversationService] as conversation
-database "Imgur"
-database "RDBMS"
+[React Native\n Mobile App] as mobile
+[Java\n neighborly-user-service] as user
+[Java\n neighborly-gateway-service] as gateway
+[Java\n neighborly-marketplace-service] as marketplace
+[Java\n neighborly-servicelisting-service] as listing
+[Java\n neighborly-conversation-service] as conversation
+[Java\n neighborly-discussion-service] as discussion
+[Java\n neighborly-blogging-service] as blogging
+[Java\n neighborly-community-service] as community
+
+
+database "users" as user_db
+database "marketplace" as marketplace_db
+database "service_listing" as listing_db    
+database "conversations" as conversation_db
+database "blogging" as blogging_db
+database "community" as community_db
+database "discussion" as discussion_db
+
+
+
+
+user --> user_db
+gateway --> user_db
+listing --> listing_db
+conversation --> conversation_db
+blogging --> blogging_db
+marketplace --> marketplace_db
+discussion --> discussion_db
+community --> community_db
+
+gateway --> user
+gateway --> marketplace
+gateway --> listing
+gateway --> conversation
+gateway --> blogging
+gateway --> discussion
+gateway --> community
 
 
 angular --> gateway
-gateway --> item
-gateway --> user
-gateway --> conversation
-user --> RDBMS
-conversation --> RDBMS
-item --> Imgur
-item --> RDBMS
+mobile --> gateway
+
+
+
+
+
 @enduml
 
