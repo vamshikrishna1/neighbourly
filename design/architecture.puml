@@ -18,18 +18,24 @@ database "conversations" as conversation_db
 database "blogging" as blogging_db
 database "community" as community_db
 database "discussion" as discussion_db
-
+database "cloudinary" as cloudinary_db
 
 
 
 user --> user_db
-gateway --> user_db
 listing --> listing_db
 conversation --> conversation_db
 blogging --> blogging_db
 marketplace --> marketplace_db
 discussion --> discussion_db
 community --> community_db
+user --> cloudinary_db
+marketplace --> cloudinary_db
+blogging --> cloudinary_db
+discussion --> cloudinary_db
+community --> cloudinary_db
+listing --> cloudinary_db
+
 
 gateway --> user
 gateway --> marketplace
