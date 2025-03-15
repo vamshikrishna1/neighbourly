@@ -96,10 +96,10 @@ Item will have visibility:
     1. Public
     2. Private (private to the commuinity.)
     3. Restricted (selected comunities)
+    4. OFF
 
 
 Satya can also share his catalogue using a hyperlink over other platforms like whatsapp.
-
 
 
 Since Satys is a verified member , he can also post an AD/promotion in the service listing.
@@ -107,6 +107,20 @@ Similar to the item, Service listing will also have a visibility
     1. Public
     2. Private (private to the commuinity.)
     3. Restricted (selected comunities)
+    4. OFF
+
+
+
+----------------------------------------------------------------------------
+
+Authorized Sellers:
+An authorized seller may or may not be verified community member.
+
+We sell license to the sellers,
+Sellers with a valid selling license would become an authorized seller. 
+The license would be valid for a duration and has a certain limit on the number of items you can sell.
+
+
 
 
 
