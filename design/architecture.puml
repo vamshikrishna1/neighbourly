@@ -1,48 +1,34 @@
 @startuml Architecture
 [Angular Frontend] as angular
 [React Native\n Mobile App] as mobile
-[Java\n neighborly-user-service] as user
-[Java\n neighborly-gateway-service] as gateway
-[Java\n neighborly-marketplace-service] as marketplace
-[Java\n neighborly-servicelisting-service] as listing
-[Java\n neighborly-conversation-service] as conversation
-[Java\n neighborly-discussion-service] as discussion
-[Java\n neighborly-blogging-service] as blogging
-[Java\n neighborly-community-service] as community
+[Java\n neighbourly-auth-service] as auth
+[Java\n neighbourly-user-service] as user
+[Java\n neighbourly-gateway-service] as gateway
+[Java\n neighbourly-community-service] as community
+[Java\n neighbourly-marketplace-service] as marketplace
+[Java\n neighbourly-conversation-service] as conversation
 
 
 database "users" as user_db
-database "marketplace" as marketplace_db
-database "service_listing" as listing_db    
+database "marketplace" as marketplace_db 
 database "conversations" as conversation_db
-database "blogging" as blogging_db
 database "community" as community_db
-database "discussion" as discussion_db
 database "cloudinary" as cloudinary_db
 
 
 
 user --> user_db
-listing --> listing_db
+
 conversation --> conversation_db
-blogging --> blogging_db
 marketplace --> marketplace_db
-discussion --> discussion_db
 community --> community_db
-user --> cloudinary_db
 marketplace --> cloudinary_db
-blogging --> cloudinary_db
-discussion --> cloudinary_db
 community --> cloudinary_db
-listing --> cloudinary_db
 
 
 gateway --> user
 gateway --> marketplace
-gateway --> listing
 gateway --> conversation
-gateway --> blogging
-gateway --> discussion
 gateway --> community
 
 

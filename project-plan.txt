@@ -1,0 +1,115 @@
+1. Set Up the Foundation (Dev Environment)
+Set up GitHub repo or monorepo structure
+
+Install & configure:
+
+Java 17+
+
+Spring Boot CLI (or Spring Initializr)
+
+PostgreSQL (or use H2 locally first)
+
+Docker (for DBs or multi-service test)
+
+Create a workspace like:
+
+rust
+Copy
+Edit
+neighborly-backend/
+├── auth-service/
+├── user-service/
+├── community-service/ (empty for now)
+├── marketplace-service/ (empty for now)
+└── docker-compose.yml (optional for DB setup)
+✅ 2. Start with auth-service
+Handles all login logic — OTP, JWT, and token issuing.
+
+🔨 Build:
+
+/auth/send-otp
+
+/auth/verify-otp
+
+JWT generation
+
+Token structure: userId, phone, role, communityId
+
+➡️ Needed by every other service.
+
+✅ 3. Build user-service
+Stores core user data and handles:
+
+User profile
+
+Flat + community mapping
+
+Role management
+
+RWA/admin approval flow
+
+🔨 Build:
+
+/users/by-phone
+
+/users (create)
+
+/users/{id}/flat (map to flat)
+
+Entities: User, Flat, Community
+
+➡️ Needed by auth-service (to fetch/create user post OTP).
+
+✅ 4. Integrate auth-service with user-service
+After OTP verify → auth-service checks/creates user via REST
+
+Passes JWT token with claims
+
+Ensure token validation is working in user-service
+
+⏭️ 5. Add community-service scaffolding
+Start with just endpoints:
+
+/events
+
+/forums
+
+/service-listings
+
+No business logic yet — just set it up and make sure requests route properly.
+
+⏭️ 6. Add marketplace-service scaffolding
+Base endpoints:
+
+/items (buy/sell)
+
+/catalog/share
+
+Entity stubs: Item, ItemCategory, Offer
+
+Add simple DTOs and mock controller responses.
+
+✅ 7. Set up API Gateway (Optional at this stage)
+Use Spring Cloud Gateway to route:
+
+/auth/** → auth-service
+
+/users/** → user-service
+
+etc.
+
+Use JWT token validation at gateway level (or defer for now).
+
+✅ 8. Prepare for Prelaunch UI (Optional)
+If your app UI is also under development:
+
+Provide working endpoints for login, user onboarding
+
+Offer mock responses for marketplace and events
+
+Use Swagger/OpenAPI for testing
+
+🧠 So, Where Should You Start?
+✅ Start with auth-service + user-service integration.
+Once that works end-to-end (user can register/login and be tracked with JWT), you're in a powerful position to expand horizontally.
+
