@@ -1,0 +1,7 @@
+Backlog
+
+
+
+1. Support for multiple communities for a single user
+
+2. grouping communities that acts like a single community

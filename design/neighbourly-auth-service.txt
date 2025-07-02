@@ -1,0 +1,19 @@
+Authentication Service (neighbourly-auth-service)
+
+
+Fetaures:
+Registration and Login
+    Register with email
+    Send OTP
+    verify OTP
+    create JWT token on success
+
+
+Token endpoints
+
+1. /auth/login
+2. /auth/regiter
+3. /auth/verify-otp
+4. /auth/token/refresh
+5. /auth/logout
+

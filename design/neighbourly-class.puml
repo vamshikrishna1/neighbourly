@@ -1,6 +1,6 @@
 @startuml neighbourly-class
-class Member {
-    int memberId
+class User {
+    int userId
     String firstName
     String lastName
     String email
@@ -10,9 +10,6 @@ class Member {
     String flatNo
     Date memberSince
     Date lastLogin
-    Item[] items
-    Conversation[] conversations   
-
 }
 
 class Item {
@@ -21,7 +18,7 @@ class Item {
     String description
     double price
     Category category
-    community community
+    Community community
     Member seller
     Condition Condition
     Photo[] photos

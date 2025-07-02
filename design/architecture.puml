@@ -1,43 +1,66 @@
-@startuml Architecture
-[Angular Frontend] as angular
-[React Native\n Mobile App] as mobile
-[Java\n neighbourly-auth-service] as auth
-[Java\n neighbourly-user-service] as user
-[Java\n neighbourly-gateway-service] as gateway
-[Java\n neighbourly-community-service] as community
-[Java\n neighbourly-marketplace-service] as marketplace
-[Java\n neighbourly-conversation-service] as conversation
+@startuml
+!theme spacelab
+skinparam linetype ortho
+title Neighbourly Platform - Microservice Architecture (Refactored)
 
+actor UserMobile as Mobile
+actor UserWeb as Web
 
-database "users" as user_db
-database "marketplace" as marketplace_db 
-database "conversations" as conversation_db
-database "community" as community_db
-database "cloudinary" as cloudinary_db
+package "Kubernetes Cluster" {
 
+    node "API Gateway" {
+        component "Spring Cloud Gateway" as Gateway
+    }
 
+    node "Auth Service" {
+        component "Auth Controller"
+        database "Redis (OTP Cache)" as Redis
+        database "PostgreSQL" as AuthDB
+    }
 
-user --> user_db
+    node "User Service" {
+        component "User Controller"
+        database "PostgreSQL" as UserDB
+    }
 
-conversation --> conversation_db
-marketplace --> marketplace_db
-community --> community_db
-marketplace --> cloudinary_db
-community --> cloudinary_db
+    node "Listing Service" {
+        component "Listing Controller"
+        database "PostgreSQL" as ListingDB
+    }
 
+    node "Community Service" {
+        component "Community Controller"
+        database "PostgreSQL" as CommunityDB
+    }
 
-gateway --> user
-gateway --> marketplace
-gateway --> conversation
-gateway --> community
+    node "Chat Service" {
+        component "Chat Controller"
+        database "MongoDB" as ChatDB
+    }
 
+    node "Notification Service" {
+        component "Email / SMS Sender"
+    }
+}
 
-angular --> gateway
-mobile --> gateway
+Mobile --> Gateway : API Calls
+Web --> Gateway : API Calls
 
+Gateway --> "Auth Controller" : /auth/**
+Gateway --> "User Controller" : /user/**
+Gateway --> "Listing Controller" : /listings/**
+Gateway --> "Community Controller" : /communities/**
+Gateway --> "Chat Controller" : /chat/**
 
+"Auth Controller" --> Redis : Store OTP
+"Auth Controller" --> AuthDB : Auth data
+"User Controller" --> UserDB : User profiles
+"Listing Controller" --> ListingDB : Product & Service listings
+"Community Controller" --> CommunityDB : Gated community data
+"Chat Controller" --> ChatDB : Buyer-seller chats
 
-
-
+"Auth Controller" --> "Notification Service" : Send OTP
+"Listing Controller" --> "User Controller" : Check roles, verify sellers
+"Listing Controller" --> "Community Controller" : Access visibility rules
+"Chat Controller" --> "User Controller" : Resolve user details
 @enduml
-
